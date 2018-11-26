@@ -35,10 +35,6 @@ public class ParkingLot {
         return capacity;
     }
 
-    public int getAvailableParkingPosition() {
-        return count - capacity;
-    }
-
     public Car fetch(Car car) {
         int index = this.cars.indexOf(car);
         if (index >= 0 ){
