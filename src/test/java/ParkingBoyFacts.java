@@ -9,7 +9,7 @@ class ParkingBoyFacts {
     void should_park_a_car_to_a_parking_lot_and_get_it_back() {
         ParkingLot parkingLot = new ParkingLot();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
-        Car car = new Car("001");
+        Car car = new Car();
 
         ParkingTicket ticket = parkingBoy.park(car);
         Car fetched = parkingBoy.fetch(ticket);
@@ -21,8 +21,8 @@ class ParkingBoyFacts {
     void should_park_multiple_cars_to_a_parking_lot_and_get_them_back() {
         ParkingLot parkingLot = new ParkingLot();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
-        Car firstCar = new Car("001");
-        Car secondCar = new Car("002");
+        Car firstCar = new Car();
+        Car secondCar = new Car();
 
         ParkingTicket firstTicket = parkingBoy.park(firstCar);
         ParkingTicket secondTicket = parkingBoy.park(secondCar);
@@ -38,7 +38,7 @@ class ParkingBoyFacts {
     void should_not_fetch_any_car_once_ticket_is_wrong() {
         ParkingLot parkingLot = new ParkingLot();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
-        Car car = new Car("001");
+        Car car = new Car();
         ParkingTicket wrongTicket = new ParkingTicket(null, null);
 
         ParkingTicket ticket = parkingBoy.park(car);
@@ -68,7 +68,7 @@ class ParkingBoyFacts {
         parkingBoy.fetch(wrongTicket);
         assertNotNull(parkingBoy.getLastErrorMessage());
 
-        ParkingTicket ticket = parkingBoy.park(new Car("001"));
+        ParkingTicket ticket = parkingBoy.park(new Car());
         assertNotNull(ticket);
         assertNull(parkingBoy.getLastErrorMessage());
     }
@@ -77,7 +77,7 @@ class ParkingBoyFacts {
     void should_not_fetch_any_car_once_ticket_is_not_provided() {
         ParkingLot parkingLot = new ParkingLot();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
-        Car car = new Car("001");
+        Car car = new Car();
 
         ParkingTicket ticket = parkingBoy.park(car);
 
@@ -101,7 +101,7 @@ class ParkingBoyFacts {
     void should_not_fetch_any_car_once_ticket_has_been_used() {
         ParkingLot parkingLot = new ParkingLot();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
-        Car car = new Car("001");
+        Car car = new Car();
 
         ParkingTicket ticket = parkingBoy.park(car);
         parkingBoy.fetch(ticket);
@@ -113,7 +113,7 @@ class ParkingBoyFacts {
     void should_query_error_message_for_used_ticket() {
         ParkingLot parkingLot = new ParkingLot();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
-        Car car = new Car("001");
+        Car car = new Car();
 
         ParkingTicket ticket = parkingBoy.park(car);
         parkingBoy.fetch(ticket);
@@ -131,9 +131,9 @@ class ParkingBoyFacts {
         ParkingLot parkingLot = new ParkingLot(capacity);
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
 
-        parkingBoy.park(new Car("001"));
+        parkingBoy.park(new Car());
 
-        assertNull(parkingBoy.park(new Car("001")));
+        assertNull(parkingBoy.park(new Car()));
     }
 
     @Test
@@ -142,8 +142,8 @@ class ParkingBoyFacts {
         ParkingLot parkingLot = new ParkingLot(capacity);
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
 
-        parkingBoy.park(new Car("001"));
-        parkingBoy.park(new Car("002"));
+        parkingBoy.park(new Car());
+        parkingBoy.park(new Car());
 
         assertEquals("The parking lot is full.", parkingBoy.getLastErrorMessage());
     }
@@ -159,8 +159,8 @@ class ParkingBoyFacts {
 
         ParkingBoy parkingBoy = new ParkingBoy(parkingLots);
 
-        Car firstCar = new Car("001");
-        Car secondCar = new Car("002");
+        Car firstCar = new Car();
+        Car secondCar = new Car();
 
         ParkingTicket firstTicket = parkingBoy.park(firstCar);
         ParkingTicket secondTicket = parkingBoy.park(secondCar);
@@ -183,7 +183,7 @@ class ParkingBoyFacts {
 
         ParkingBoy parkingBoy = new SmartParkingBoy(parkingLots);
 
-        Car firstCar = new Car("001");
+        Car firstCar = new Car();
 
         ParkingTicket firstTicket = parkingBoy.park(firstCar);
 
@@ -201,9 +201,9 @@ class ParkingBoyFacts {
 
         ParkingBoy parkingBoy = new SmartParkingBoy(parkingLots);
 
-        Car firstCar = new Car("001");
-        Car secondCar = new Car("002");
-        Car thirdCar = new Car("003");
+        Car firstCar = new Car();
+        Car secondCar = new Car();
+        Car thirdCar = new Car();
 
         ParkingTicket firstTicket = parkingBoy.park(firstCar);
         ParkingTicket secondTicket = parkingBoy.park(secondCar);
@@ -229,9 +229,9 @@ class ParkingBoyFacts {
 
         parkingLotServiceManager.addParkingBoy(parkingBoy );
 
-        Car firstCar = new Car("001");
-        Car secondCar = new Car("002");
-        Car thirdCar = new Car("003");
+        Car firstCar = new Car();
+        Car secondCar = new Car();
+        Car thirdCar = new Car();
 
         ParkingTicket firstTicket = parkingBoy.park(firstCar);
         ParkingTicket secondTicket = parkingBoy.park(secondCar);
@@ -248,7 +248,7 @@ class ParkingBoyFacts {
         ParkingLot parkingLot = new ParkingLot();
         ParkingLotServiceManager parkingLotServiceManager = new ParkingLotServiceManager();
         ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
-        Car car1 = new Car("001");
+        Car car1 = new Car();
         parkingLotServiceManager.addParkingBoy(parkingBoy);
 
         ParkingTicket ticket = parkingLotServiceManager.useParkingBoyToPark(parkingBoy, car1);

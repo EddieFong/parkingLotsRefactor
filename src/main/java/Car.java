@@ -1,12 +1,6 @@
 public class Car {
 
-    public String getId() {
-        return id;
-    }
+    public Car() {
 
-    private final String id;
-
-    public Car(String id) {
-        this.id = id;
     }
 }
