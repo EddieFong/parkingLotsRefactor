@@ -30,19 +30,22 @@ public class ParkingBoy {
         }
 
         if ( (ticket.getCar() == null) || (ticket.getParkingLot() == null) ){
-            this.lastErrorMessage = "Unrecognized parking ticket.";
-            return null;
+            return handle_wrong_ticket();
         }
 
         if ( ticket.isUsed()){
-            this.lastErrorMessage = "Unrecognized parking ticket.";
-            return null;
+            return handle_wrong_ticket();
         }
 
 
         ParkingLot parkingLot = ticket.getParkingLot();
         ticket.setUsed(true);
         return parkingLot.fetch(ticket.getCar());
+    }
+
+    private Car handle_wrong_ticket() {
+        this.lastErrorMessage = "Unrecognized parking ticket.";
+        return null;
     }
 
     public ParkingTicket park(Car car) {
