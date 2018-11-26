@@ -23,10 +23,6 @@ public class ParkingBoy {
 
     private String lastErrorMessage;
 
-    public void add(ParkingLot parkingLot) {
-        this.parkingLots.add(parkingLot);
-    }
-
     public Car fetch(ParkingTicket ticket) {
         if (ticket == null){
             this.lastErrorMessage = "Please provide your parking ticket.";
