@@ -13,12 +13,10 @@ public class SuperSmartParkingBoy extends ParkingBoy {
             boolean parked = parkingLot.park(car);
             if (parked){
                 ParkingTicket parkingTicket = new ParkingTicket(car, parkingLot);
-//                this.lastErrorMessage = null;
                 return parkingTicket;
             }
             return null;
         } else {
-//            this.lastErrorMessage = "The parking lot is full.";
             return null;
         }
     }
