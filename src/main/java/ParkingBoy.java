@@ -17,7 +17,6 @@ public class ParkingBoy {
     }
 
     public String getLastErrorMessage() {
-
         return lastErrorMessage;
     }
 

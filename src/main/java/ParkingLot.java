@@ -14,10 +14,6 @@ public class ParkingLot {
         return count;
     }
 
-    public void setCount(int count) {
-        this.count = count;
-    }
-
     private int count;
 
     public ParkingLot(int capacity) {
