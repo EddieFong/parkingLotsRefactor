@@ -60,7 +60,6 @@ public class ParkingBoy {
     }
 
     private ParkingLot findTargetParkingLot() {
-        ParkingLot target;
         for(ParkingLot parkingLot:parkingLots){
             if (parkingLot.getCapacity() > parkingLot.getCount())
                 return parkingLot;
