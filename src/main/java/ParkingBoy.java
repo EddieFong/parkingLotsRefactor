@@ -29,14 +29,9 @@ public class ParkingBoy {
             return null;
         }
 
-        if ( (ticket.getCar() == null) || (ticket.getParkingLot() == null) ){
+        if ( (ticket.getCar() == null) || (ticket.getParkingLot() == null) || ticket.isUsed()){
             return handle_wrong_ticket();
         }
-
-        if ( ticket.isUsed()){
-            return handle_wrong_ticket();
-        }
-
 
         ParkingLot parkingLot = ticket.getParkingLot();
         ticket.setUsed(true);
