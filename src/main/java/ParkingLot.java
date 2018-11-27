@@ -22,7 +22,7 @@ public class ParkingLot {
     }
 
 
-    public boolean park(Car car) {
+    public boolean isCarParked(Car car) {
         if (this.count == this.capacity){
             return false;
         }

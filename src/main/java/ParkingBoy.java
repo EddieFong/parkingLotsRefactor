@@ -45,7 +45,7 @@ public class ParkingBoy {
     public ParkingTicket park(Car car) {
         ParkingLot parkingLot = findTargetParkingLot();
         if (parkingLot != null) {
-            boolean parked = parkingLot.park(car);
+            boolean parked = parkingLot.isCarParked(car);
             if (parked){
                 ParkingTicket parkingTicket = new ParkingTicket(car, parkingLot);
                 this.lastErrorMessage = null;
