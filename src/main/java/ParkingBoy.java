@@ -27,11 +27,13 @@ public class ParkingBoy {
             this.lastErrorMessage = "Please provide your parking ticket.";
             return null;
         }
-
         if ( (ticket.getCar() == null) || (ticket.getParkingLot() == null) || ticket.isUsed()){
             return handle_wrong_ticket();
         }
+        return returnActualFetchingCar(ticket);
+    }
 
+    private Car returnActualFetchingCar(ParkingTicket ticket) {
         ParkingLot parkingLot = ticket.getParkingLot();
         ticket.setUsed(true);
         return parkingLot.fetch(ticket.getCar());
