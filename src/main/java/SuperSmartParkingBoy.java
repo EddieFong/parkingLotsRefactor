@@ -7,21 +7,7 @@ public class SuperSmartParkingBoy extends ParkingBoy {
     }
 
     @Override
-    public ParkingTicket park(Car car) {
-        ParkingLot parkingLot = findTargetParkingLot();
-        if (parkingLot != null) {
-            boolean parked = parkingLot.park(car);
-            if (parked){
-                ParkingTicket parkingTicket = new ParkingTicket(car, parkingLot);
-                return parkingTicket;
-            }
-            return null;
-        } else {
-            return null;
-        }
-    }
-
-    private ParkingLot findTargetParkingLot() {
+    protected ParkingLot findTargetParkingLot() {
         ParkingLot target = null;
         int min = 100;
         for(ParkingLot parkingLot:super.getParkingLots()){
